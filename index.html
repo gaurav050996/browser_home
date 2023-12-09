@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="./js/script.js" defer></script>
+  <title>Home</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <section>
+      <nav class="nav d-flex justify-content-between">
+        <div class="row">
+          <div class="col">
+            <div class="nav-logo ms-3 mt-2" id="navLogo">
+              <img id="navMainLogo" src="assets/logos/google.png" alt="">
+              <div id="navDropdown" class="nav-logo__dropdown d-flex flex-column align-items-center">
+                <img class="d-block mb-4 mt-2" src="assets/logos/yahoo.png" alt="" id="yahoo"
+                  onclick="changeSearch('yahoo')">
+                <img class="d-block mb-2" src="assets/logos/bing.png" alt="" id="bing" onclick="changeSearch('bing')">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col d-flex align-items-end gap-3 me-3">
+            <div class="form-check form-switch d-flex flex-column align-items-end ps-0">
+              <small class="mode-text me-1">Light Mode</small>
+              <input class="form-check-input" type="checkbox" role="switch" id="lightModeSwitch">
+            </div>
+            <div class="form-check form-switch d-flex flex-column align-items-end ps-0">
+              <small class="mode-text">Hacker Mode</small>
+              <input class="form-check-input" type="checkbox" role="switch" id="hackerModeSwitch">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col d-flex flex-column justify-content-center align-items-center se-main">
+            <div class="se-image">
+              <img id="seImage" src="assets/se_main/google_se.png" alt="">
+            </div>
+            <!-- Google Search Box -->
+            <form id="formMain" action="https://www.google.com/search" method="GET" class="d-flex">
+              <input id="formInput" class="form-control p-3 me-3" type="text" name="q" placeholder="Search Google">
+              <button class="btn btn-search w-25" type="submit" value="Search">Search</button>
+            </form>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+          <div class="col-12 col-md-6 d-flex gap-4 justify-content-center justify-content-md-end">
+            <a href="https://chat.openai.com/" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+              <div class="fav-shadow"></div>
+              <div class="fav-img__wrapper">
+                <img src="assets/logos/chat-gpt.png" style="width: 50px;" alt="">
+              </div>
+            </a>
+            <a href="https://github.com/" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+              <div class="fav-shadow"></div>
+              <div class="fav-img__wrapper">
+                <img src="assets/logos/github.png" style="width: 50px;" alt="">
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-md-6 d-flex gap-4 mt-4 mt-md-0 justify-content-center justify-content-md-start">
+            <a href="https://stackoverflow.com/" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+              <div class="fav-shadow"></div>
+              <div class="fav-img__wrapper">
+                <img src="assets/logos/stack-overflow.png" style="width: 50px;" alt="">
+              </div>
+            </a>
+            <a href="https://mail.google.com/" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+              <div class="fav-shadow"></div>
+              <div class="fav-img__wrapper">
+                <img src="assets/logos/gmail.png" style="width: 50px;" alt="">
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+          <div class="col-12 col-md-6 d-flex gap-4 justify-content-center justify-content-md-end">
+            <a href="https://getbootstrap.com/" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+              <div class="fav-shadow"></div>
+              <div class="fav-img__wrapper">
+                <img src="assets/logos/bootstrap.png" style="width: 50px;" alt="">
+              </div>
+            </a>
+            <a href="https://www.microsoft.com/en-in/microsoft-365/microsoft-office" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+              <div class="fav-shadow"></div>
+              <div class="fav-img__wrapper">
+                <img src="assets/logos/microsoft.png" style="width: 50px;" alt="">
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-md-6 d-flex gap-4 mt-4 mt-md-0 justify-content-center justify-content-md-start">
+            <a href="https://meet.google.com/" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+              <div class="fav-shadow"></div>
+              <div class="fav-img__wrapper">
+                <img src="assets/logos/meet.png" style="width: 50px;" alt="">
+              </div>
+            </a>
+            <a href="https://docs.google.com/spreadsheets/" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+              <div class="fav-shadow"></div>
+              <div class="fav-img__wrapper">
+                <img src="assets/logos/sheets.png" style="width: 50px;" alt="">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
