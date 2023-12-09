@@ -13,7 +13,20 @@ let hackerModeCheckBox = document.getElementById('hackerModeSwitch');
 let seImage = document.getElementById('seImage');
 
 // On Load function calls
-toggleLightMode();
+if (!localStorage.getItem('light_mode')) {
+  localStorage.setItem('light_mode', false);
+}
+
+if (!localStorage.getItem('hacker_mode')) {
+  localStorage.setItem('hacker_mode', false);
+}
+
+if (JSON.parse(localStorage.getItem('hacker_mode'))) {
+  toggleHackerMode();
+}
+else {
+  toggleLightMode();
+}
 
 // Search engine toggle
 navMainLogo.addEventListener('click', function () {
@@ -29,19 +42,31 @@ navMainLogo.addEventListener('click', function () {
 hackerModeCheckBox.addEventListener('change', function () {
   // Switch off light mode
   lightModeCheckbox.checked = false;
-  lightMode = false;
-  toggleLightMode();
+
+  localStorage.setItem('light_mode', false);
+  localStorage.setItem('hacker_mode', hackerModeCheckBox.checked ? true : false);
 
   if (hackerModeCheckBox.checked) {
-    root.style.setProperty('--main-bg', "url('/assets/bg_main/matrix.webp')");
-    root.style.setProperty('--fav-bg', '#00000000')
-    root.style.setProperty('--fav-box-shadow', 'none')
+    toggleHackerMode();
   }
 
 });
 
+function toggleHackerMode() {
+  lightModeCheckbox.checked = false;
+  hackerModeCheckBox.checked = true;
+
+  toggleLightMode();
+
+  root.style.setProperty('--main-bg', "url('/assets/bg_main/matrix.webp')");
+  root.style.setProperty('--fav-bg', '#00000000')
+  root.style.setProperty('--fav-box-shadow', 'none')
+}
+
 // Light Mode
 lightModeCheckbox.addEventListener('change', function () {
+  localStorage.setItem('light_mode', lightModeCheckbox.checked ? true : false);
+
   if (lightModeCheckbox.checked) {
     hackerModeCheckBox.checked = false;
   }
@@ -86,6 +111,9 @@ function changeSearch(value) {
 
 function toggleLightMode() {
 
+  let lightMode = JSON.parse(localStorage.getItem('light_mode'));
+  lightModeCheckbox.checked = lightMode;
+
   let lightModeVar = {
     '--main-bg': '#F9F5F6',
     '--fav-bg': '#FFF',
@@ -94,7 +122,7 @@ function toggleLightMode() {
     '--fav-box-shadow': 'rgba(54, 53, 53, 0.5) 0px 2px 8px 0px',
     '--nav': '#D9D7F1',
     '--lg-mode': '#092635',
-    '--bg-btn' : '#78C1F3',
+    '--bg-btn': '#78C1F3',
   };
 
   let darkModeVar = {
@@ -105,10 +133,10 @@ function toggleLightMode() {
     '--fav-box-shadow': 'rgba(157, 132, 183, 0.5) 0px 2px 8px 0px',
     '--nav': '#fff',
     '--lg-mode': '#F1F0E8',
-    '--bg-btn' : '#7286d3',
+    '--bg-btn': '#7286d3',
   };
 
-  Object.entries(lightModeCheckbox.checked ? lightModeVar : darkModeVar).forEach(([key, value]) => {
+  Object.entries(lightMode ? lightModeVar : darkModeVar).forEach(([key, value]) => {
     root.style.setProperty(key, value);
   });
 }
