@@ -48,6 +48,9 @@ hackerModeCheckBox.addEventListener('change', function () {
 
   if (hackerModeCheckBox.checked) {
     toggleHackerMode();
+  } 
+  else {
+    toggleLightMode();
   }
 
 });
