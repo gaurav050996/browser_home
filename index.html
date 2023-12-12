@@ -12,9 +12,9 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  <div id="mainContainer" class="container-fluid">
     <section>
-      <nav class="nav d-flex justify-content-between">
+      <nav class="nav d-flex justify-content-between align-items-center">
         <div class="row">
           <div class="col">
             <div class="nav-logo ms-3 mt-2" id="navLogo">
@@ -27,7 +27,8 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="d-flex align-items-center gap-5">
+          <button class="btn btn-primary h-50" onclick="toggleFullscreen()">Screen Saver</button>
           <div class="col d-flex align-items-end gap-3 me-3">
             <div class="form-check form-switch d-flex flex-column align-items-end ps-0">
               <small class="mode-text me-1">Light Mode</small>
@@ -71,7 +72,8 @@
             </a>
           </div>
           <div class="col-12 col-md-6 d-flex gap-4 mt-4 mt-md-0 justify-content-center justify-content-md-start">
-            <a href="https://stackoverflow.com/" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+            <a href="https://stackoverflow.com/"
+              class="col-md-3 d-flex justify-content-center fav-box position-relative">
               <div class="fav-shadow"></div>
               <div class="fav-img__wrapper">
                 <img src="assets/logos/stack-overflow.png" style="width: 50px;" alt="">
@@ -87,13 +89,15 @@
         </div>
         <div class="row justify-content-center mt-4">
           <div class="col-12 col-md-6 d-flex gap-4 justify-content-center justify-content-md-end">
-            <a href="https://getbootstrap.com/" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+            <a href="https://getbootstrap.com/"
+              class="col-md-3 d-flex justify-content-center fav-box position-relative">
               <div class="fav-shadow"></div>
               <div class="fav-img__wrapper">
                 <img src="assets/logos/bootstrap.png" style="width: 50px;" alt="">
               </div>
             </a>
-            <a href="https://www.microsoft.com/en-in/microsoft-365/microsoft-office" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+            <a href="https://www.microsoft.com/en-in/microsoft-365/microsoft-office"
+              class="col-md-3 d-flex justify-content-center fav-box position-relative">
               <div class="fav-shadow"></div>
               <div class="fav-img__wrapper">
                 <img src="assets/logos/microsoft.png" style="width: 50px;" alt="">
@@ -107,7 +111,8 @@
                 <img src="assets/logos/meet.png" style="width: 50px;" alt="">
               </div>
             </a>
-            <a href="https://docs.google.com/spreadsheets/" class="col-md-3 d-flex justify-content-center fav-box position-relative">
+            <a href="https://docs.google.com/spreadsheets/"
+              class="col-md-3 d-flex justify-content-center fav-box position-relative">
               <div class="fav-shadow"></div>
               <div class="fav-img__wrapper">
                 <img src="assets/logos/sheets.png" style="width: 50px;" alt="">
@@ -118,6 +123,11 @@
       </div>
     </section>
   </div>
+  <section id="screenSaver" class="d-none">
+    <video autoplay loop muted class="w-100 h-100" onclick="toggleFullscreen()">
+      <source src="assets/videos/eren-vs-armored-and-colossal-attack-on-titan-moewalls-com.mp4">
+    </video>
+  </section>
 </body>
 
 </html>

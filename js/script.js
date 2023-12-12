@@ -12,6 +12,10 @@ let hackerModeCheckBox = document.getElementById('hackerModeSwitch');
 // SE main image
 let seImage = document.getElementById('seImage');
 
+// Container
+let mainContainer = document.getElementById('mainContainer');
+let screenSaver = document.getElementById('screenSaver');
+
 // On Load function calls
 if (!localStorage.getItem('light_mode')) {
   localStorage.setItem('light_mode', false);
@@ -48,7 +52,7 @@ hackerModeCheckBox.addEventListener('change', function () {
 
   if (hackerModeCheckBox.checked) {
     toggleHackerMode();
-  } 
+  }
   else {
     toggleLightMode();
   }
@@ -150,5 +154,38 @@ window.onbeforeunload = function () {
   hackerModeCheckBox.checked = false;
   window.location.reload(true);
 }
+
+// Toggle FS
+document.addEventListener('fullscreenchange', checkExitFullScreen);
+
+function checkExitFullScreen() {
+  if (!document.fullscreenElement) {
+    exitFullScreenMode();
+  }
+}
+
+function toggleFullscreen() {
+  enterFullScreenMode();
+  if (document.fullscreenElement) {
+    exitFullScreenMode();
+    document.exitFullscreen();
+  } else {
+    document.documentElement.requestFullscreen()
+      .catch(err => {
+        console.error('Error attempting to enable fullscreen:', err.message);
+      });
+  }
+}
+
+function exitFullScreenMode() {
+  screenSaver.classList.add('d-none');
+  mainContainer.classList.remove('d-none');
+}
+
+function enterFullScreenMode() {
+  mainContainer.classList.add('d-none');
+  screenSaver.classList.remove('d-none');
+}
+
 
 
