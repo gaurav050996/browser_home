@@ -65,7 +65,7 @@ function toggleHackerMode() {
 
   toggleLightMode();
 
-  root.style.setProperty('--main-bg', "url('/assets/bg_main/matrix.webp')");
+  root.style.setProperty('--main-bg', "url('.././assets/bg_main/matrix.webp')");
   root.style.setProperty('--fav-bg', '#00000000')
   root.style.setProperty('--fav-box-shadow', 'none')
 }
