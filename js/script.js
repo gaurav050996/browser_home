@@ -129,7 +129,8 @@ function toggleLightMode() {
     '--fav-box-shadow': 'rgba(54, 53, 53, 0.5) 0px 2px 8px 0px',
     '--nav': '#D9D7F1',
     '--lg-mode': '#092635',
-    '--bg-btn': '#78C1F3',
+    '--bg-btn': 'linear-gradient(90deg, hsla(333, 100%, 53%, 1) 0%, hsla(33, 94%, 57%, 1) 100%)',
+    '--bg-btn-saver': 'linear-gradient(90deg, hsla(29, 92%, 70%, 1) 0%, hsla(0, 87%, 73%, 1) 100%)',
   };
 
   let darkModeVar = {
@@ -140,7 +141,8 @@ function toggleLightMode() {
     '--fav-box-shadow': 'rgba(157, 132, 183, 0.5) 0px 2px 8px 0px',
     '--nav': '#fff',
     '--lg-mode': '#F1F0E8',
-    '--bg-btn': '#7286d3',
+    '--bg-btn': 'linear-gradient(90deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%)',
+    '--bg-btn-saver': 'linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%)',
   };
 
   Object.entries(lightMode ? lightModeVar : darkModeVar).forEach(([key, value]) => {
